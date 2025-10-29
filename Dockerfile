@@ -2,7 +2,9 @@
 FROM gradle:8.3-jdk17 AS builder
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN gradle build -x test
+RUN chmod +x gradlew
+RUN ./gradlew build -x test
+
 
 # Step 2: Run the app
 FROM eclipse-temurin:17-jdk
