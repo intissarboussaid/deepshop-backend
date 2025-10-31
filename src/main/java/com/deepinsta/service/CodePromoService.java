@@ -39,11 +39,6 @@ public class CodePromoService {
 	@Autowired
 	CommandeRepository commandeRepository;
 
-
-    CodePromoService(CommandeRepository commandeRepository) {
-        this.commandeRepository = commandeRepository;
-    }
-
 	
 	
 	/*public CodePromo  AddCodePromo(long idAdmin,long idUser, CodePromo codePromo ) {

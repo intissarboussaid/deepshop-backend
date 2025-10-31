@@ -33,20 +33,18 @@ public class CommandeService {
 	private CustomersService customersService;
 	@Autowired
 	private Colors_qte_sizeService detailsService;
+	@Autowired
 	private CommandeRepository commandeRepository;	
+	@Autowired
 	private ProductService productService;
+	@Autowired
 	private UsersService userService;
+	@Autowired
 	private ProductRepository productRepository;
+	@Autowired
 	private CommandeItemRepository commandeItemRepository;
 	
-	public CommandeService(CommandeRepository commandeRepository,ProductService productService,UsersService userService,ProductRepository productRepository,CommandeItemRepository commandeItemRepository) {
-		this.commandeRepository = commandeRepository;
-		this.productService=productService;
-		this.userService=userService;
-		this.productRepository=productRepository;
-		this.commandeItemRepository= commandeItemRepository;
-	}
-	
+
 	public Commande getById(long id) {
 		return commandeRepository.getById(id);
 	}

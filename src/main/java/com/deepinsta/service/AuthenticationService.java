@@ -28,33 +28,29 @@ import com.deepinsta.modal.Users;
 import com.deepinsta.repository.AccountRepository;
 
 import jakarta.mail.MessagingException;
-import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
 public class AuthenticationService {
 
 	@Autowired
 	private EmailService emailService;
-    private final AdminService adminService;
+	@Autowired
+    private  AdminService adminService;
+	@Autowired
     private Product_managerService product_managerService;
+	@Autowired
     private UsersService usersService;
+	@Autowired
     private  JwtService jwtService;
-	
-	private final  AccountRepository accountRepository;
-	private final  PasswordEncoder passwordEncoder;
-	private  final AuthenticationManager authenticationManager;
+	@Autowired
+	private   AccountRepository accountRepository;
+	@Autowired
+	private   PasswordEncoder passwordEncoder;
+	@Autowired
+	private   AuthenticationManager authenticationManager;
 	
 
-    AuthenticationService(JwtService jwtService,AccountRepository accountRepository,AuthenticationManager authenticationManager, PasswordEncoder passwordEncoder, AdminService adminService,UsersService usersService,Product_managerService product_managerService) {
-        this.jwtService = jwtService;
-		this.accountRepository = accountRepository;
-		this.passwordEncoder = passwordEncoder;
-		this.authenticationManager = authenticationManager;
-		this.adminService = adminService;
-		this.product_managerService = product_managerService;
-		this.usersService = usersService;
-    }
+   
 	
 	public ResponseEntity<?> register (RegisterRequest request) throws MessagingException {
 

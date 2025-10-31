@@ -3,6 +3,7 @@ package com.deepinsta.service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.deepinsta.modal.Product;
@@ -13,19 +14,14 @@ import com.deepinsta.repository.ViewProductRepository;
 
 @Service
 public class ViewProductService {
-	
+	@Autowired
     private ViewProductRepository viewProductRepository;
+	@Autowired
     private ProductService productService;
+	@Autowired
     private UsersService userService;
+	@Autowired
     private ProductRepository productRepository;
-	
-	public ViewProductService(ViewProductRepository viewProductRepository,ProductService productService,UsersService userService,ProductRepository productRepository) {
-		this.viewProductRepository= viewProductRepository;
-		this.productService=productService;
-		this.userService=userService;
-		this.productRepository=productRepository;
-		
-	}
 	
 	public ViewProduct addView(long id_product, long id_user) {
 		Product product=productService.GetProductById(id_product);

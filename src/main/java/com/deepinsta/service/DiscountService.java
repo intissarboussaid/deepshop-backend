@@ -15,16 +15,14 @@ import com.deepinsta.repository.DiscountRepository;
 @Service
 public class DiscountService {
 
+	@Autowired
 	private DiscountRepository discountRepository;
+	@Autowired
 	private ProductService productService;
 	@Autowired
 	private AdminService adminService;
 	
 	
-	public DiscountService(DiscountRepository discountRepository,ProductService productService) {
-		this.discountRepository=discountRepository;	
-		this.productService=productService;
-	}	
 	public Discount addDiscount(long id,Discount discount) {
 		Product product= productService.GetProductById(id);
 		discount.setProduct(product);

@@ -7,11 +7,11 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.deepinsta.modal.Admin;
-import com.deepinsta.modal.Color_qte;
 import com.deepinsta.modal.Photo;
 import com.deepinsta.modal.Product;
 import com.deepinsta.modal.Product_manager;
@@ -23,22 +23,21 @@ import com.deepinsta.repository.Product_managerRepository;
 @Service
 public class ProductService {
 
-    private final PhotoService photoService;
-	
+    	@Autowired
+        private  PhotoService photoService;	
+	    @Autowired
 	    private ProductRepository productRepository;
+	    @Autowired
 	    private Product_managerRepository product_managerRepository;
 	    private final Path path = Paths.get("uploads");
+	    @Autowired
 	    private  PhotoRepository photoRepository ;
+	    @Autowired
 	    private  AdminRepository adminRepository ;
+	    @Autowired
 	    private  Colors_qte_sizeService colors_qte_sizeService ;
 	
-	public ProductService(ProductRepository productRepository,PhotoRepository photoRepository,Product_managerRepository product_managerRepository, AdminRepository adminRepository,PhotoService photoService) {
-		this.productRepository=productRepository;
-		this.photoRepository=photoRepository;
-		this.product_managerRepository =product_managerRepository;
-		this.photoService = photoService;
-		this.adminRepository=adminRepository;
-	}
+
 	//add new product By PM
 	public Product CreateNewProductByPM(long id,Product product) throws IOException {
 		Product_manager product_manger= product_managerRepository.findById(id);

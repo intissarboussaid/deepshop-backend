@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -19,16 +20,14 @@ import com.deepinsta.repository.Product_managerRepository;
 
 @Service
 public class Product_managerService {
-	
+	@Autowired
 	private Product_managerRepository  product_managerRepository;
+	@Autowired
 	public PhotoService photoService;
+	@Autowired
 	private AdminRepository adminRepository;
 	
-	  public Product_managerService(Product_managerRepository  product_managerRepository, PhotoService photoService,AdminRepository adminRepository) {
-	  this.product_managerRepository=product_managerRepository; 
-	  this.photoService=photoService;
-	  this.adminRepository = adminRepository;
-}
+
 
 	  
 	  public Product_manager AddProduct_manager(Product_manager product_manager) {

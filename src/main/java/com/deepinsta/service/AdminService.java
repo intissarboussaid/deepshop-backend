@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.MediaType;
@@ -25,18 +26,15 @@ import com.deepinsta.repository.AdminRepository;
 
 @Service
 public class AdminService {
-	
-	public final AdminRepository adminRepository;
-	public final AccountRepository accountRepository;
+	@Autowired
+	public AdminRepository adminRepository;
+	@Autowired
+	public AccountRepository accountRepository;
+	@Autowired
 	public PhotoService photoService;
 	 
 	
-	public AdminService (AdminRepository adminRepository,PhotoService photoService,AccountRepository accountRepository) {
-		this.adminRepository=adminRepository;
-		this.photoService=photoService;
-		this.accountRepository=accountRepository;
-	}
-	
+
 	
 	//add part
 	public Admin CreateAdmin(Admin adminRequest){

@@ -5,12 +5,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.deepinsta.modal.Admin;
+
 import com.deepinsta.modal.Photo;
 import com.deepinsta.modal.Users;
 import com.deepinsta.repository.UsersRepository;
@@ -18,14 +19,12 @@ import com.deepinsta.repository.UsersRepository;
 @Service
 public class UsersService {
 	
-	
+	@Autowired
 	private UsersRepository usersRepository;
+	@Autowired
 	public PhotoService photoService;
 	
-	public UsersService(UsersRepository usersRepository,PhotoService photoService) {
-		this.usersRepository=usersRepository;
-		this.photoService=photoService;
-	}
+
 	
 	
 	public Users AddUser(Users user) {
