@@ -1,13 +1,23 @@
-# Step 1: Build the app
-FROM gradle:8.3-jdk17 AS builder
-COPY --chown=gradle:gradle . /home/gradle/src
-WORKDIR /home/gradle/src
-RUN chmod +x gradlew
-RUN ./gradlew build -x test
+# Étape 1 : Build de l'application
+FROM gradle:8.13-jdk17 AS build
+WORKDIR /app
 
+# Copier les fichiers Gradle et le code source
+COPY build.gradle settings.gradle ./
+COPY src ./src
 
-# Step 2: Run the app
+# Compiler ton projet (en sautant les tests)
+RUN gradle clean build -x test
+
+# Étape 2 : Image finale d'exécution
 FROM eclipse-temurin:17-jdk
-COPY --from=builder /home/gradle/src/build/libs/*.jar app.jar
+WORKDIR /app
+
+# Copier le jar généré depuis l'étape précédente
+COPY --from=build /app/build/libs/*.jar app.jar
+
+# Exposer le port 8080
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app.jar"]
+
+# Lancer l'application Spring Boot
+ENTRYPOINT ["java", "-jar", "app.jar"]
