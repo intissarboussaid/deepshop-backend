@@ -22,14 +22,13 @@ import com.deepinsta.repository.AccountRepository;
 import com.deepinsta.service.AuthenticationService;
 
 import jakarta.mail.MessagingException;
-import lombok.RequiredArgsConstructor;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("api/deepinsta/auth/")
-@RequiredArgsConstructor
 public class AuthenticationController {
 	@Autowired
 	AccountRepository accoutRepository;
+	@Autowired
 	private AuthenticationService authenticationService;
 	 
 	
