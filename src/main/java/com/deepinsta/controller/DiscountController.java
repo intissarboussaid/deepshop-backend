@@ -15,7 +15,7 @@ import com.deepinsta.modal.Discount;
 import com.deepinsta.service.DiscountService;
 
 @RestController
-@CrossOrigin(origins = "https://intissarboussaid.github.io/deepshop")
+@CrossOrigin(origins = "https://intissarboussaid.github.io")
 @RequestMapping("api/deepinsta/discount")
 public class DiscountController {
 	

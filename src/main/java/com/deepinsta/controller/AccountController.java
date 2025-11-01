@@ -12,7 +12,7 @@ import com.deepinsta.modal.Account;
 import com.deepinsta.service.AccountService;
 
 
-@CrossOrigin(origins = "https://intissarboussaid.github.io/deepshop")
+@CrossOrigin(origins = "https://intissarboussaid.github.io")
 @RestController
 @RequestMapping("api/deepinsta/account/")
 public class AccountController {

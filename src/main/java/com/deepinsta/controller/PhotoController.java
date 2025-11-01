@@ -19,7 +19,7 @@ import com.deepinsta.modal.Photo;
 import com.deepinsta.service.PhotoService;
 
 @RestController
-@CrossOrigin(origins = "https://intissarboussaid.github.io/deepshop")
+@CrossOrigin(origins = "https://intissarboussaid.github.io")
 @RequestMapping("api/deepinsta/photo")
 public class PhotoController {
 	

@@ -21,7 +21,7 @@ import com.deepinsta.service.ViewProductService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@CrossOrigin(origins = "https://intissarboussaid.github.io/deepshop")
+@CrossOrigin(origins = "https://intissarboussaid.github.io")
 @RequestMapping("api/deepinsta/view/product/")
 @RequiredArgsConstructor
 public class ViewProductController {
