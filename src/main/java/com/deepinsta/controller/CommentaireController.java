@@ -18,7 +18,7 @@ import com.deepinsta.service.CommentaireService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://intissarboussaid.github.io/deepshop")
 @RequestMapping("api/deepinsta/commentaire/")
 @RequiredArgsConstructor
 public class CommentaireController {

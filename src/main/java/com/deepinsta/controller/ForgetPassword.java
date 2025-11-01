@@ -26,7 +26,7 @@ import com.deepinsta.service.EmailService;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://intissarboussaid.github.io/deepshop")
 @RestController
 @RequestMapping("api/deepinsta/forgetPassword/")
 @RequiredArgsConstructor

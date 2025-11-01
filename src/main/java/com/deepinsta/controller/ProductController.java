@@ -26,7 +26,7 @@ import com.deepinsta.service.PhotoService;
 import com.deepinsta.service.ProductService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://intissarboussaid.github.io/deepshop")
 @RequestMapping("api/deepinsta/product")
 public class ProductController {
 

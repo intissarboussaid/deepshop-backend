@@ -13,7 +13,7 @@ import com.deepinsta.service.CustomersService;
 
 import lombok.RequiredArgsConstructor;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://intissarboussaid.github.io/deepshop")
 @RestController
 @RequestMapping("api/deepshop/customers/")
 @RequiredArgsConstructor

@@ -22,7 +22,7 @@ import com.deepinsta.repository.AccountRepository;
 import com.deepinsta.service.AuthenticationService;
 
 import jakarta.mail.MessagingException;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://intissarboussaid.github.io/deepshop")
 @RestController
 @RequestMapping("api/deepinsta/auth/")
 public class AuthenticationController {

@@ -18,7 +18,7 @@ import com.deepinsta.service.CodePromoService;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://intissarboussaid.github.io/deepshop")
 @RestController
 @RequestMapping("api/deepshop/codePromo/")
 @RequiredArgsConstructor
