@@ -16,6 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.deepinsta.modal.Admin;
 import com.deepinsta.service.AdminService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
 import lombok.RequiredArgsConstructor;
@@ -23,9 +25,8 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("api/deepinsta/admin/")
-@RequiredArgsConstructor
 public class AdminController {
-	
+	@Autowired
 	private  AdminService adminService;
 	
     public AdminController(AdminService adminService) {

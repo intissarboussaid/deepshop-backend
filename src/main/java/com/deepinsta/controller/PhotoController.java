@@ -3,6 +3,7 @@ package com.deepinsta.controller;
 import java.io.IOException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +22,9 @@ import com.deepinsta.service.PhotoService;
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("api/deepinsta/photo")
 public class PhotoController {
-	private final PhotoService photoService;
+	
+	@Autowired
+	private PhotoService photoService;
 
     public PhotoController(PhotoService photoService) {
         this.photoService = photoService;

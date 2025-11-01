@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,8 +30,11 @@ import com.deepinsta.service.ProductService;
 @RequestMapping("api/deepinsta/product")
 public class ProductController {
 
+	@Autowired
 	private ProductService productService;
+	@Autowired
 	private PhotoService photoService;
+	@Autowired
 	private Colors_qte_sizeService detailsService;
 	
 	public ProductController(ProductService productService,PhotoService photoService,Colors_qte_sizeService detailsService) {

@@ -3,6 +3,7 @@ package com.deepinsta.controller;
 import java.io.IOException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,6 +28,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Product_managerController {
 	
+	@Autowired
 	private Product_managerService product_managerService;
 	
 	public Product_managerController(Product_managerService product_managerService) {
