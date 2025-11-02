@@ -13,7 +13,7 @@ import com.deepinsta.service.EmailService;
 
 import lombok.RequiredArgsConstructor;
 
-@CrossOrigin(origins = "https://intissarboussaid.github.io")
+@CrossOrigin(origins = "https://deepshop-frontend.onrender.com")
 @RestController
 @RequestMapping("api/deepinsta/sendEmail/")
 @RequiredArgsConstructor

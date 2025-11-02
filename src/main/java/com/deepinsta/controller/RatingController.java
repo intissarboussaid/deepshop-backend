@@ -18,7 +18,7 @@ import com.deepinsta.service.RatingService;
 
 
 
-@CrossOrigin(origins = "https://intissarboussaid.github.io")
+@CrossOrigin(origins = "https://deepshop-frontend.onrender.com")
 @RestController
 @RequestMapping("api/deepinsta/rating/")
 public class RatingController {

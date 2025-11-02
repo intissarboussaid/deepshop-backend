@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.deepinsta.modal.Favorite;
 import com.deepinsta.service.FavoriteService;
 
-@CrossOrigin(origins = "https://intissarboussaid.github.io")
+@CrossOrigin(origins = "https://deepshop-frontend.onrender.com")
 @RestController
 @RequestMapping("api/deepshop/fav/")
 public class FavoriteController {
