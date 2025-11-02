@@ -23,7 +23,7 @@ import com.deepinsta.service.Product_managerService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@CrossOrigin(origins = "https://deepshop-frontend.onrender.com")
+@CrossOrigin(origins = "https://intissarboussaid.github.io")
 @RequestMapping("api/deepinsta/product_manager/")
 @RequiredArgsConstructor
 public class Product_managerController {

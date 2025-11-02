@@ -23,7 +23,7 @@ import org.springframework.http.ResponseEntity;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@CrossOrigin(origins = "https://deepshop-frontend.onrender.com")
+@CrossOrigin(origins = "https://intissarboussaid.github.io")
 @RequestMapping("api/deepinsta/admin/")
 public class AdminController {
 	@Autowired

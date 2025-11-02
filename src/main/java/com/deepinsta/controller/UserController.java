@@ -22,7 +22,7 @@ import com.deepinsta.service.UsersService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@CrossOrigin(origins = "https://deepshop-frontend.onrender.com")
+@CrossOrigin(origins = "https://intissarboussaid.github.io")
 @RequestMapping("api/deepinsta/user/")
 @RequiredArgsConstructor
 public class UserController {

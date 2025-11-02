@@ -21,7 +21,7 @@ import com.deepinsta.service.CommandeService;
 import jakarta.mail.MessagingException;
 
 @RestController
-@CrossOrigin(origins = "https://deepshop-frontend.onrender.com")
+@CrossOrigin(origins = "https://intissarboussaid.github.io")
 @RequestMapping("api/deepinsta/commande/")
 public class CommandeController {
 	
