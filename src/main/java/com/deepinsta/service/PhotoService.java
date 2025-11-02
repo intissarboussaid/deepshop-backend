@@ -7,12 +7,16 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.deepinsta.modal.Admin;
 import com.deepinsta.modal.FileResponse;
 import com.deepinsta.modal.Photo;
@@ -26,6 +30,8 @@ public class PhotoService {
 	private final Path path = Paths.get("uploads");
     private  PhotoRepository photoRepository ;
     private ProductRepository productRepository;
+    @Autowired
+    private Cloudinary cloudinary;
     
     
     //inject dependency repository in this service to make it work when we run project to use it!
@@ -35,19 +41,23 @@ public class PhotoService {
     }
     
     public Photo savePhoto(MultipartFile file, long id) throws IOException {
+    	 Map uploadResult = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
+         String url = (String) uploadResult.get("secure_url");
         // 1. Generate a unique filename
         String filename = id + "_" + System.currentTimeMillis() + "_" + file.getOriginalFilename();
+        String publicId = (String) uploadResult.get("public_id");
+        String format = (String) uploadResult.get("format");
         
         // 2. Save file to disk
-        Files.createDirectories(path);
-        Path destination = path.resolve(filename);
-        Files.copy(file.getInputStream(), destination, StandardCopyOption.REPLACE_EXISTING);
+      //  Files.createDirectories(path);
+      //  Path destination = path.resolve(filename);
+      //  Files.copy(file.getInputStream(), destination, StandardCopyOption.REPLACE_EXISTING);
 
         // 3. Save metadata to DB
         Photo photo = new Photo();
         photo.setFilename(filename);
         photo.setName(file.getOriginalFilename());
-        photo.setFilePath(destination.toString());
+        photo.setFilePath(url);
         photo.setContentType(file.getContentType());
         photo.setSize(file.getSize());
         
@@ -55,21 +65,28 @@ public class PhotoService {
     }
     //save photos by id_roduct
     public List<Photo> savePhotoProduct(List<MultipartFile> files, long id_product) throws IOException {
+    	
         // 1. Generate a unique filename
     	  
     	 List<Photo> photos = new ArrayList<>();
     	  for (MultipartFile file : files) {
+    		  Map uploadResult = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
+    	         String url = (String) uploadResult.get("secure_url");
+    	        // 1. Generate a unique filename
+    	        String publicId = (String) uploadResult.get("public_id");
+    	        String format = (String) uploadResult.get("format");
         String filename = id_product + "_" + System.currentTimeMillis() + "_" + file.getOriginalFilename();
      
         // 2. Save file to disk
-        Files.createDirectories(path);
-        Path destination = path.resolve(filename);
-        Files.copy(file.getInputStream(), destination, StandardCopyOption.REPLACE_EXISTING);
+        //Files.createDirectories(path);
+       // Path destination = path.resolve(filename);
+        // Files.copy(file.getInputStream(), destination, StandardCopyOption.REPLACE_EXISTING);
 
         // 3. Save metadata to DB
         Photo photo = new Photo();
         photo.setName(file.getOriginalFilename());
-        photo.setFilePath(destination.toString());
+        photo.setFilePath(url);
+        photo.setFilename(filename);
         photo.setContentType(file.getContentType());
         photo.setSize(file.getSize());
         photos.add(photo);
